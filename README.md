@@ -17,10 +17,21 @@ This project leverages **Docker** to orchestrate a multi-stage data pipeline tha
     * ✨ **Sanitization:** Removes emojis and special characters via Regex.
 * **Dataset Outlet:** Updates the `processed_reviews.csv` Dataset to signal completion.
 
+---
+
+## 📸 Data Transformation Pipeline Visualization
+![DAG Screenshot](./docs/airflow_UI/airflow_transform_data_graph.png)
+
+
 ### 📥 DAG 2: MongoDB Loader (`2_load_to_mongodb`)
 * **Owner:** S.T - BigData
 * **Data-Aware Trigger:** Automatically starts only when the first DAG successfully updates the processed dataset.
 * **NoSQL Load:** Moves the finalized, cleaned data into a MongoDB collection.
+
+---
+
+## 📸 MongoDB Loader Pipeline Visualization
+![DAG Screenshot](./docs/airflow_UI/airflow_load_to_mongodb.png)
 
 ---
 
@@ -33,10 +44,8 @@ Once the pipeline completes, the following insights can be extracted using **Mon
 | **Short Reviews** | `{$expr: {$lt: [{$strLenCP: {$toString: "$content"}}, 5]}}` |
 | **Daily Avg Rating** | `[{$group: {_id: "$created_date", avg: {$avg: "$score"}}}, {$sort: {_id: 1}}]` |
 
----
-
-## 📸 Pipeline Visualization
-![DAG Screenshot](./docs/airflow_UI/airflow_transform_data_graph.png)
+## 📸 MongoDB Analytics Visualization
+![DAG Screenshot](./docs/mongodb_UI/average_rating_per_day.png)
 
 ---
 
