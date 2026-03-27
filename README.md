@@ -1,4 +1,4 @@
-# ETL Pipeline using Airflow, MongoDB & Docker**
+# ETL Pipeline using Airflow, MongoDB & Docker
 
 ---
 
