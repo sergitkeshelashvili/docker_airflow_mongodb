@@ -20,7 +20,7 @@ PROCESSED_DATA_SIGNAL = Dataset("/opt/airflow/data/processed_reviews.csv")
 default_args = {
     "owner": "S.T - BigData",
     "retries": 0,
-    "start_date": datetime.datetime(2026, 3, 27)  # Updated to current year
+    "start_date": datetime.datetime(2026, 3, 27)
 }
 
 
